@@ -1,0 +1,110 @@
+C51 COMPILER V9.60.0.0   IR_COUNTER                                                        11/03/2020 15:42:07 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE IR_COUNTER
+OBJECT MODULE PLACED IN .\Objects\ir counter.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ir counter.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listing
+                    -s\ir counter.lst) TABS(2) OBJECT(.\Objects\ir counter.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          sbit rs =P3^5;
+   4          sbit en =P3^3;
+   5          
+   6          sbit ir =P3^7;
+   7          
+   8          void delay(unsigned int a);
+   9          void command(unsigned int b);
+  10          void display(unsigned int c);
+  11          void string(char *e);
+  12          void ascii(unsigned int q);
+  13          void start();
+  14          
+  15          int count=0;
+  16          
+  17          void main(){
+  18   1        start();
+  19   1        command(0x80);
+  20   1        display('a');
+  21   1        while(1){
+  22   2        if(ir==1){
+  23   3          count++;
+  24   3          command(0x81);
+  25   3          ascii(count);
+  26   3          P0=0xff;
+  27   3          while(ir==1){
+  28   4            delay(65000);
+  29   4          }
+  30   3          
+  31   3        }
+  32   2        
+  33   2        if(ir==0){
+  34   3          P0=0x00;
+  35   3          delay(6500);
+  36   3          
+  37   3        }
+  38   2      }
+  39   1      }
+  40          
+  41          void delay(unsigned int a){
+  42   1        while(a!=0){
+  43   2          a--;
+  44   2        }
+  45   1      }
+  46          
+  47          void command(unsigned int b){
+  48   1        rs=0;
+  49   1        P1=b;
+  50   1        en=1;
+  51   1        delay(300);
+  52   1        en=0;
+  53   1      }
+  54          
+C51 COMPILER V9.60.0.0   IR_COUNTER                                                        11/03/2020 15:42:07 PAGE 2   
+
+  55          void display(unsigned int c){
+  56   1        rs=1;
+  57   1        P1=c;
+  58   1        en=1;
+  59   1        delay(300);
+  60   1        en=0;
+  61   1      }
+  62          
+  63          void start(){
+  64   1        command(0X01);
+  65   1        command(0X0C);
+  66   1        command(0X3C);
+  67   1        command(0X38);
+  68   1      
+  69   1      }
+  70          
+  71          void string(char *e){
+  72   1        while(*e){
+  73   2          display(*e++);
+  74   2          }
+  75   1      }
+  76          
+  77          void ascii(unsigned int q){
+  78   1        char array[]={'0','1','2','3','4','5','6','7','8','9'};
+  79   1        int a,b;
+  80   1        a=q/10;
+  81   1        display(array[a]);
+  82   1        b=q%10;
+  83   1        display(array[b]);
+  84   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    248    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2      15
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

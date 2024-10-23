@@ -1,0 +1,3 @@
+".\Objects\ir counter.obj" 
+TO ".\Objects\ir counter" 
+PRINT(".\Listings\ir counter.m51") RAMSIZE(256) 

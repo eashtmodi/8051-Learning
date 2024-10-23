@@ -1,0 +1,60 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    09/01/2020  14:07:37  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\RUNNING_LOOP.obj TO .\Objects\RUNNING_LOOP PRINT (.\Listings\RUNNING_LOOP.m51) RAM
+>> SIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\RUNNING_LOOP.obj (RUNNING_LOOP)
+
+
+LINK MAP OF MODULE:  .\Objects\RUNNING_LOOP (RUNNING_LOOP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0309H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\RUNNING_LOOP (RUNNING_LOOP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        RUNNING_LOOP
+  C:0302H         SYMBOL        AGAIN
+  D:00F0H         SYMBOL        B
+  C:0300H         SYMBOL        DELAY
+  C:0304H         SYMBOL        HERE
+  C:0004H         SYMBOL        LOOP
+  D:0080H         SYMBOL        P0
+  C:0000H         SYMBOL        START
+  C:0000H         LINE#         2
+  C:0002H         LINE#         3
+  C:0004H         LINE#         4
+  C:0006H         LINE#         5
+  C:0009H         LINE#         6
+  C:000AH         LINE#         7
+  C:000DH         LINE#         8
+  C:000FH         LINE#         9
+  C:0300H         LINE#         14
+  C:0302H         LINE#         15
+  C:0304H         LINE#         16
+  C:0306H         LINE#         17
+  C:0308H         LINE#         18
+  -------         ENDMOD        RUNNING_LOOP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 001AH BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=777
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

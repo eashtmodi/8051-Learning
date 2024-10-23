@@ -1,0 +1,3 @@
+".\Objects\7_SEGMENT_DISPLAY.obj" 
+TO ".\Objects\7_SEGMENT_DISPLAY" 
+PRINT(".\Listings\7_SEGMENT_DISPLAY.m51")

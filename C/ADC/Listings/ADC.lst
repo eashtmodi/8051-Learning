@@ -1,0 +1,109 @@
+C51 COMPILER V9.60.0.0   ADC                                                               10/31/2020 13:28:11 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE ADC
+OBJECT MODULE PLACED IN .\Objects\ADC.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ADC.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\ADC.l
+                    -st) TABS(2) OBJECT(.\Objects\ADC.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          sbit rs =P3^5;
+   4          sbit en =P3^3;
+   5          
+   6          sbit intr=P0^6;
+   7          sbit wtr=P0^7;
+   8          
+   9          
+  10          void delay(unsigned int a);
+  11          void command(unsigned int b);
+  12          void display(unsigned int c);
+  13          void string(char *e);
+  14          void ascii(unsigned int tempp);
+  15          void start();
+  16          
+  17          void main(){
+  18   1        unsigned int x;
+  19   1        P2=0Xff;
+  20   1        start();
+  21   1        wtr=1;
+  22   1        command(0X80);
+  23   1        display('A');
+  24   1        while(1){
+  25   2          intr=1;
+  26   2          wtr=0;
+  27   2          delay(100);
+  28   2          wtr=1;
+  29   2          while(intr==1);
+  30   2          x=P2;
+  31   2          command(0XC0);
+  32   2          delay(10);
+  33   2          ascii(x);
+  34   2        }
+  35   1      }
+  36          
+  37          void delay(unsigned int a){
+  38   1        while(a!=0){
+  39   2          a--;
+  40   2        }
+  41   1      }
+  42          
+  43          void command(unsigned int b){
+  44   1        rs=0;
+  45   1        P1=b;
+  46   1        en=1;
+  47   1        delay(300);
+  48   1        en=0;
+  49   1      }
+  50          
+  51          void display(unsigned int c){
+  52   1        rs=1;
+  53   1        P1=c;
+  54   1        en=1;
+C51 COMPILER V9.60.0.0   ADC                                                               10/31/2020 13:28:11 PAGE 2   
+
+  55   1        delay(300);
+  56   1        en=0;
+  57   1      }
+  58          
+  59          void start(){
+  60   1        command(0X01);
+  61   1        command(0X0C);
+  62   1        command(0X3C);
+  63   1        command(0X38);
+  64   1      
+  65   1      }
+  66          
+  67          void string(char *e){
+  68   1        while(*e){
+  69   2          display(*e++);
+  70   2          }
+  71   1      }
+  72          
+  73          void ascii(unsigned int tempp){
+  74   1        char array[]={'0','1','2','3','4','5','6','7','8','9'};
+  75   1        int a,b,c;
+  76   1        a=tempp/100;
+  77   1        display(array[a]);
+  78   1        b=tempp%10;
+  79   1        display(array[b]);
+  80   1        c=tempp%10;
+  81   1        display(array[c]);
+  82   1      }
+  83          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    256    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      17
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

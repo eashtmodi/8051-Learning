@@ -1,0 +1,33 @@
+A51 MACRO ASSEMBLER  PSW                                                                  08/28/2020 14:31:25 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\PSW.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE PSW.asm SET(SMALL) DEBUG PRINT(.\Listings\PSW.lst) OBJECT(.\Objects\PSW
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0H;
+0000 7801              2     MOV R0,#1;
+0002 D2D4              3     SETB PSW.4;
+0004 7802              4     MOV R0,#2;
+0006 D2D3              5     SETB PSW.3;
+0008 D2D4              6     SETB PSW.4;
+000A 7803              7     MOV R0,#3;
+                       8     END;
+A51 MACRO ASSEMBLER  PSW                                                                  08/28/2020 14:31:25 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+PSW. . . . . . . .  D ADDR   00D0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

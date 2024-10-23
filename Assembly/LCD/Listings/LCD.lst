@@ -1,0 +1,104 @@
+A51 MACRO ASSEMBLER  LCD                                                                  09/08/2020 15:49:31 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\LCD.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE LCD.ASM SET(SMALL) DEBUG PRINT(.\Listings\LCD.lst) OBJECT(.\Objects\LCD
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H;
+0000 7438              2             MOV A,#38H;DEFINING 5*7 MATRIX AND 16*2 LCD
+0002 120300            3             LCALL COMWRT;
+0005 120900            4             LCALL DELAY;
+0008 740E              5             MOV A,#0EH;DISPLAY ON AND CURSOR TOO!
+000A 120300            6             LCALL COMWRT;
+000D 120900            7             LCALL DELAY;
+0010 7401              8             MOV A,#1H;LCD CLEAR
+0012 120300            9             LCALL COMWRT;
+0015 120900           10             LCALL DELAY;
+0018 7485             11             MOV A,#85H;CURSOR(0,5);
+001A 120300           12             LCALL COMWRT;
+001D 120900           13             LCALL DELAY;
+                      14             
+0020 744D             15             MOV A,#'M';
+0022 120600           16             LCALL DATAWRT;
+0025 120900           17             LCALL DELAY;
+0028 744F             18             MOV A,#'O';
+002A 120600           19             LCALL DATAWRT;
+002D 120900           20             LCALL DELAY;
+0030 7444             21             MOV A,#'D';
+0032 120600           22             LCALL DATAWRT;
+0035 120900           23             LCALL DELAY;
+0038 7449             24             MOV A,#'I';
+003A 120600           25             LCALL DATAWRT;
+003D 120900           26             LCALL DELAY;
+                      27             
+0040 74C5             28             MOV A,#0C5H;CURSOR(1,5);
+0042 120300           29             LCALL COMWRT;
+0045 120900           30             LCALL DELAY;
+0048 7452             31             MOV A,#'R';
+004A 120600           32             LCALL DATAWRT;
+004D 120900           33             LCALL DELAY;
+0050 744F             34             MOV A,#'O';
+0052 120600           35             LCALL DATAWRT;
+0055 120900           36             LCALL DELAY;
+0058 7442             37             MOV A,#'B';
+005A 120600           38             LCALL DATAWRT;
+005D 120900           39             LCALL DELAY;
+0060 744F             40             MOV A,#'O';
+0062 120600           41             LCALL DATAWRT;
+0065 120900           42             LCALL DELAY;
+0068 80FE             43     HERE: SJMP HERE;
+                      44     
+0300                  45     ORG 300H;
+0300 F590             46     COMWRT: MOV P1,A;
+0302 C2B5             47             CLR P3.5;
+0304 D2B3             48             SETB P3.3;
+0306 120900           49             LCALL DELAY;
+0309 C2B3             50             CLR P3.3;
+030B 22               51             RET;
+                      52             
+0600                  53     ORG 600H;
+0600 F590             54     DATAWRT: MOV P1,A;
+0602 D2B5             55             SETB P3.5;
+0604 D2B3             56             SETB P3.3;
+0606 120900           57             LCALL DELAY;
+A51 MACRO ASSEMBLER  LCD                                                                  09/08/2020 15:49:31 PAGE     2
+
+0609 C2B3             58             CLR P3.3;
+060B 22               59             RET;
+                      60             
+0900                  61     ORG 900H;
+0900 780A             62             DELAY: MOV R0,#10;
+0902 79FF             63             AGAIN: MOV R1,#255;
+0904 D9FE             64             HERE2: DJNZ R1,HERE2;
+0906 D8FA             65             DJNZ R0,AGAIN;
+0908 22               66             RET;
+                      67             
+                      68     END;
+                                     
+                                     
+A51 MACRO ASSEMBLER  LCD                                                                  09/08/2020 15:49:31 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0902H   A   
+COMWRT . . . . . .  C ADDR   0300H   A   
+DATAWRT. . . . . .  C ADDR   0600H   A   
+DELAY. . . . . . .  C ADDR   0900H   A   
+HERE . . . . . . .  C ADDR   0068H   A   
+HERE2. . . . . . .  C ADDR   0904H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

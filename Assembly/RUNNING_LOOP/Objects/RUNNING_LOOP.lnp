@@ -1,0 +1,3 @@
+".\Objects\RUNNING_LOOP.obj" 
+TO ".\Objects\RUNNING_LOOP" 
+PRINT(".\Listings\RUNNING_LOOP.m51") RAMSIZE(256) 

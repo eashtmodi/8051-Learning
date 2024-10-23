@@ -1,0 +1,3 @@
+".\Objects\ADC.obj" 
+TO ".\Objects\ADC" 
+PRINT(".\Listings\ADC.m51") RAMSIZE(256) 

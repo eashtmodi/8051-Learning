@@ -1,0 +1,52 @@
+A51 MACRO ASSEMBLER  INPUT                                                                09/01/2020 14:44:50 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\INPUT.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE INPUT.ASM SET(SMALL) DEBUG PRINT(.\Listings\INPUT.lst) OBJECT(.\Objects
+                      \INPUT.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H;
+0000 758000            2     MOV P0,#0;
+0003 D2B6              3     LOOP: SETB P3.6;
+0005 D2B7              4     SETB P3.7;
+0007 30B605            5     BACK: JNB P3.6,NXT;
+000A 120300            6     LCALL DELAY;
+000D 80F8              7     SJMP BACK;
+                       8     
+000F 04                9     NXT: INC A;
+0010 F580             10     MOV P0,A;
+0012 120300           11     LCALL DELAY;
+0015 80EC             12     SJMP LOOP;
+                      13     
+0300                  14     ORG 300H;
+0300 78FF             15             DELAY:MOV R0,#255;
+0302 79C8             16             AGAIN:MOV R1,#200;
+0304 D9FE             17             HERE:DJNZ R1,HERE;
+0306 D8FA             18             DJNZ R0,AGAIN;
+0308 22               19             RET;
+                      20     END;
+A51 MACRO ASSEMBLER  INPUT                                                                09/01/2020 14:44:50 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0302H   A   
+BACK . . . . . . .  C ADDR   0007H   A   
+DELAY. . . . . . .  C ADDR   0300H   A   
+HERE . . . . . . .  C ADDR   0304H   A   
+LOOP . . . . . . .  C ADDR   0003H   A   
+NXT. . . . . . . .  C ADDR   000FH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

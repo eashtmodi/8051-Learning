@@ -1,0 +1,78 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    09/07/2020  14:29:28  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\BUTTON_7_SEGMENT.obj TO .\Objects\BUTTON_7_SEGMENT PRINT (.\Listings\BUTTON_7_SEGM
+>> ENT.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\BUTTON_7_SEGMENT.obj (BUTTON_7_SEGMENT)
+
+
+LINK MAP OF MODULE:  .\Objects\BUTTON_7_SEGMENT (BUTTON_7_SEGMENT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0309H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\BUTTON_7_SEGMENT (BUTTON_7_SEGMENT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BUTTON_7_SEGMENT
+  C:0302H         SYMBOL        AGAIN
+  C:0300H         SYMBOL        DELAY
+  C:0304H         SYMBOL        HERE
+  C:0004H         SYMBOL        LOOP
+  D:0080H         SYMBOL        P0
+  D:00B0H         SYMBOL        P3
+  C:0026H         SYMBOL        RETURN
+  C:0029H         SYMBOL        THERE
+  C:0000H         LINE#         2
+  C:0002H         LINE#         3
+  C:0004H         LINE#         4
+  C:0007H         LINE#         5
+  C:0009H         LINE#         6
+  C:000BH         LINE#         7
+  C:000EH         LINE#         8
+  C:0011H         LINE#         9
+  C:0014H         LINE#         10
+  C:0017H         LINE#         11
+  C:001AH         LINE#         12
+  C:001DH         LINE#         13
+  C:0020H         LINE#         14
+  C:0023H         LINE#         15
+  C:0026H         LINE#         16
+  C:0029H         LINE#         18
+  C:002CH         LINE#         21
+  C:002DH         LINE#         22
+  C:0030H         LINE#         23
+  C:0033H         LINE#         24
+  C:0035H         LINE#         25
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  09/07/2020  14:29:28  PAGE 2
+
+
+  C:0037H         LINE#         26
+  C:0300H         LINE#         29
+  C:0302H         LINE#         30
+  C:0304H         LINE#         31
+  C:0306H         LINE#         32
+  C:0308H         LINE#         33
+  -------         ENDMOD        BUTTON_7_SEGMENT
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0042H BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=777
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

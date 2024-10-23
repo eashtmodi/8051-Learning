@@ -1,0 +1,94 @@
+A51 MACRO ASSEMBLER  7_SEGMENT_DISPLAY                                                    09/02/2020 15:12:26 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\7_SEGMENT_DISPLAY.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 7_SEGMENT_DISPLAY.ASM SET(SMALL) DEBUG PRINT(.\Listings\7_SEGMENT_DISPL
+                      AY.lst) OBJECT(.\Objects\7_SEGMENT_DISPLAY.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H;
+0000 C2B6              2             CLR P3.6;
+0002 C2B7              3             CLR P3.7;
+0004 78FF              4             MOV R0,#255;
+0006 7580C0            5     RESTART: MOV P0,#0C0H;0
+0009 120300            6             LCALL DELAY;
+000C 120300            7             LCALL DELAY;
+000F 120300            8             LCALL DELAY;
+                       9             
+0012 7580F9           10             MOV P0,#0F9H;1
+0015 120300           11             LCALL DELAY;
+0018 120300           12             LCALL DELAY;
+001B 120300           13             LCALL DELAY;
+                      14             
+001E 7580A4           15             MOV P0,#0A4H;2
+0021 120300           16             LCALL DELAY;
+0024 120300           17             LCALL DELAY;
+0027 120300           18             LCALL DELAY;
+                      19             
+002A 7580B0           20             MOV P0,#0B0H;3
+002D 120300           21             LCALL DELAY;
+0030 120300           22             LCALL DELAY;
+0033 120300           23             LCALL DELAY;
+                      24             
+0036 758099           25             MOV P0,#99H;4
+0039 120300           26             LCALL DELAY;
+003C 120300           27             LCALL DELAY;
+003F 120300           28             LCALL DELAY;
+                      29             
+0042 758092           30             MOV P0,#92H;5
+0045 120300           31             LCALL DELAY;
+0048 120300           32             LCALL DELAY;
+004B 120300           33             LCALL DELAY;
+                      34             
+004E 758082           35             MOV P0,#082H;6
+0051 120300           36             LCALL DELAY;
+0054 120300           37             LCALL DELAY;
+0057 120300           38             LCALL DELAY;
+                      39             
+005A 7580F8           40             MOV P0,#0F8H;7
+005D 120300           41             LCALL DELAY;
+0060 120300           42             LCALL DELAY;
+0063 120300           43             LCALL DELAY;
+                      44             
+0066 758000           45             MOV P0,#0H;8
+0069 120300           46             LCALL DELAY;
+006C 120300           47             LCALL DELAY;
+006F 120300           48             LCALL DELAY;
+                      49             
+0072 758090           50             MOV P0,#90H;9
+0075 120300           51             LCALL DELAY;
+0078 120300           52             LCALL DELAY;
+007B 120300           53             LCALL DELAY;
+007E D886             54             DJNZ R0,RESTART;
+                      55     
+0300                  56     ORG 300H;
+0300 79FF             57             DELAY: MOV R1,#255;
+A51 MACRO ASSEMBLER  7_SEGMENT_DISPLAY                                                    09/02/2020 15:12:26 PAGE     2
+
+0302 7AFF             58             AGAIN: MOV R2,#255;
+0304 DAFE             59             HERE: DJNZ R2,HERE;
+0306 D9FA             60             DJNZ R1,AGAIN;
+0308 22               61             RET;
+                      62             END;
+A51 MACRO ASSEMBLER  7_SEGMENT_DISPLAY                                                    09/02/2020 15:12:26 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0302H   A   
+DELAY. . . . . . .  C ADDR   0300H   A   
+HERE . . . . . . .  C ADDR   0304H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RESTART. . . . . .  C ADDR   0006H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,52 @@
+A51 MACRO ASSEMBLER  RUNNING_LOOP                                                         09/01/2020 14:07:37 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\RUNNING_LOOP.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE RUNNING_LOOP.ASM SET(SMALL) DEBUG PRINT(.\Listings\RUNNING_LOOP.lst) OB
+                      JECT(.\Objects\RUNNING_LOOP.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0H;
+0000 7A08              2             START: MOV R2,#8;
+0002 7401              3             MOV A,#1H;
+0004 F580              4             LOOP:  MOV P0,A;
+0006 75F002            5             MOV B,#2H;
+0009 A4                6             MUL AB;
+000A 120300            7             LCALL DELAY;
+000D DAF5              8             DJNZ R2,LOOP;
+000F 80EF              9             SJMP START;
+                      10             
+                      11             
+                      12     
+0300                  13     ORG 300H;
+0300 7964             14             DELAY:MOV R1,#100;
+0302 78FF             15             AGAIN: MOV R0,#255;
+0304 D8FE             16         HERE:DJNZ R0,HERE;
+0306 D9FA             17             DJNZ R1,AGAIN;
+0308 22               18             RET;
+                      19             END;
+                                     
+                                     
+A51 MACRO ASSEMBLER  RUNNING_LOOP                                                         09/01/2020 14:07:37 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0302H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+DELAY. . . . . . .  C ADDR   0300H   A   
+HERE . . . . . . .  C ADDR   0304H   A   
+LOOP . . . . . . .  C ADDR   0004H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+START. . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

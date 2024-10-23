@@ -1,0 +1,66 @@
+A51 MACRO ASSEMBLER  BUTTON_7_SEGMENT                                                     09/07/2020 14:29:28 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\BUTTON_7_SEGMENT.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE BUTTON_7_SEGMENT.ASM SET(SMALL) DEBUG PRINT(.\Listings\BUTTON_7_SEGMENT
+                      .lst) OBJECT(.\Objects\BUTTON_7_SEGMENT.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H;
+0000 D2B6              2             SETB P3.6;
+0002 D2B7              3             SETB P3.7;
+0004 7580C0            4     LOOP:MOV P0,#0C0H;
+0007 7840              5             MOV R0,#40H;
+0009 7B0A              6             MOV R3,#10;
+000B 7540C0            7             MOV 40H,#0C0H;0
+000E 7541F9            8         MOV 41H,#0F9H; 1
+0011 7542A4            9             MOV 42H,#0A4H;2
+0014 7543B0           10             MOV 43H,#0B0H;3
+0017 754499           11             MOV 44H,#99H;4
+001A 754592           12             MOV 45H,#92H;5
+001D 754682           13             MOV 46H,#82H;6
+0020 7547F8           14             MOV 47H,#0F8H;7
+0023 754800           15             MOV 48H,#00H;8
+0026 754990           16     RETURN:MOV 49H,#90H;9
+                      17             
+0029 20B6FD           18         THERE: JB P3.6,THERE;
+                      19             
+                      20             
+002C 08               21              INC R0;
+002D 120300           22             LCALL DELAY;
+0030 120300           23             LCALL DELAY;
+0033 8680             24             MOV P0,@R0;
+0035 DBEF             25             DJNZ R3,RETURN;
+0037 80CB             26             SJMP LOOP;
+                      27     
+0300                  28     ORG 300H;
+0300 79FF             29             DELAY: MOV R1,#255;
+0302 7AFF             30             AGAIN: MOV R2,#255;
+0304 DAFE             31             HERE: DJNZ R2,HERE;
+0306 D9FA             32             DJNZ R1,AGAIN;
+0308 22               33             RET;
+                      34             END;
+A51 MACRO ASSEMBLER  BUTTON_7_SEGMENT                                                     09/07/2020 14:29:28 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0302H   A   
+DELAY. . . . . . .  C ADDR   0300H   A   
+HERE . . . . . . .  C ADDR   0304H   A   
+LOOP . . . . . . .  C ADDR   0004H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RETURN . . . . . .  C ADDR   0026H   A   
+THERE. . . . . . .  C ADDR   0029H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

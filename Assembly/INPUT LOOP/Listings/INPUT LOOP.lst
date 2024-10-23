@@ -1,0 +1,58 @@
+A51 MACRO ASSEMBLER  INPUT_LOOP                                                           09/01/2020 15:27:47 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\INPUT LOOP.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE INPUT LOOP.ASM SET(SMALL) DEBUG PRINT(.\Listings\INPUT LOOP.lst) OBJECT
+                      (.\Objects\INPUT LOOP.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H;
+0000 758001            2     LOOP:MOV P0,#1H;
+0003 120300            3         LCALL DELAY;
+0006 7401              4             MOV A,#1H;
+0008 7A08              5         MOV R2,#8;
+000A 75F002            6     HEREE:MOV B,#2H;
+000D D2B6              7             SETB P3.6;
+000F D2B7              8             SETB P3.7;
+0011 30B605            9     BACK: JNB P3.6,NXT;
+0014 120300           10             LCALL DELAY;
+0017 80F8             11             SJMP BACK;
+0019 A4               12         NXT: MUL AB;
+001A F580             13             MOV P0,A;
+001C 120300           14             LCALL DELAY;
+001F DAE9             15             DJNZ R2,HEREE;
+0021 80DD             16             SJMP LOOP;
+                      17     
+0300                  18     ORG 300H;
+0300 78FF             19             DELAY:MOV R0,#255;
+0302 79C8             20             AGAIN:MOV R1,#200;
+0304 D9FE             21             HERE:DJNZ R1,HERE;
+0306 D8FA             22             DJNZ R0,AGAIN;
+0308 22               23             RET;
+                      24     END;
+A51 MACRO ASSEMBLER  INPUT_LOOP                                                           09/01/2020 15:27:47 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0302H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+BACK . . . . . . .  C ADDR   0011H   A   
+DELAY. . . . . . .  C ADDR   0300H   A   
+HERE . . . . . . .  C ADDR   0304H   A   
+HEREE. . . . . . .  C ADDR   000AH   A   
+LOOP . . . . . . .  C ADDR   0000H   A   
+NXT. . . . . . . .  C ADDR   0019H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

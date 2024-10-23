@@ -1,0 +1,222 @@
+C51 COMPILER V9.60.0.0   BUTTON_MATRIX_LCD                                                 10/29/2020 16:15:58 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE BUTTON_MATRIX_LCD
+OBJECT MODULE PLACED IN .\Objects\button_matrix_lcd.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE button_matrix_lcd.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\
+                    -Listings\button_matrix_lcd.lst) TABS(2) OBJECT(.\Objects\button_matrix_lcd.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          #define switches P0
+   4          
+   5          sbit rs =P3^5;
+   6          sbit en =P3^3;
+   7          
+   8          
+   9          void delay(unsigned int z);
+  10          void command(unsigned int b);
+  11          void display(unsigned int c);
+  12          void string(char *e);
+  13          void start();
+  14          
+  15          
+  16          unsigned int a;
+  17          
+  18          void main(){
+  19   1        
+  20   1        P3=0;
+  21   1        P0=0Xff;
+  22   1        
+  23   1        
+  24   1        start();
+  25   1        command(0X01);
+  26   1        
+  27   1        
+  28   1        
+  29   1        while(1){
+  30   2          main:switches=0X0F;
+  31   2        
+  32   2          if(switches==0X0F){
+  33   3            goto main;
+  34   3          }
+  35   2          
+  36   2          switches=0XEF;
+  37   2              a=switches;
+  38   2      
+  39   2          if(a!=0XEF){
+  40   3            if(a==0XE7){
+  41   4              //P3=1;
+  42   4              command(0X01);
+  43   4              display('A');
+  44   4      
+  45   4            }
+  46   3            
+  47   3            if(a==0XEB){
+  48   4              //P3=2;
+  49   4              command(0X01);
+  50   4              display('B');
+  51   4            }
+  52   3            
+  53   3            if(a==0XED){
+  54   4              P3=3;
+C51 COMPILER V9.60.0.0   BUTTON_MATRIX_LCD                                                 10/29/2020 16:15:58 PAGE 2   
+
+  55   4              command(0X01);
+  56   4              display('C');
+  57   4            }
+  58   3            
+  59   3            if(a==0XEE){
+  60   4              //P3=4;
+  61   4              command(0X01);
+  62   4              display('D');
+  63   4            }
+  64   3            
+  65   3          }
+  66   2          
+  67   2          switches=0XDF;
+  68   2              a=switches;
+  69   2      
+  70   2          if(a!=0XDF){
+  71   3            if(a==0XD7){
+  72   4              //P3=5;
+  73   4              command(0X01);
+  74   4              display('E');
+  75   4            }
+  76   3            
+  77   3            if(a==0XDB){
+  78   4              //P3=6;
+  79   4              command(0X01);
+  80   4              display('F');
+  81   4            }
+  82   3            
+  83   3            if(a==0XDD){
+  84   4              //P3=7;
+  85   4              command(0X01);
+  86   4              display('G');
+  87   4            }
+  88   3            
+  89   3            if(a==0XDE){
+  90   4              //P3=8;
+  91   4              command(0X01);
+  92   4              display('H');
+  93   4            }
+  94   3          }
+  95   2          
+  96   2          switches=0XBF;
+  97   2              a=switches;
+  98   2      
+  99   2          if(a!=0XBF){
+ 100   3            if(a==0XB7){
+ 101   4              //P3=9;
+ 102   4              command(0X01);
+ 103   4              display('I');
+ 104   4            }
+ 105   3            
+ 106   3            if(a==0XBB){
+ 107   4              //P3=10;
+ 108   4              command(0X01);
+ 109   4              display('J');
+ 110   4            }
+ 111   3            
+ 112   3            if(a==0XBD){
+ 113   4              //P3=11;
+ 114   4              command(0X01);
+ 115   4              display('K');
+ 116   4            }
+C51 COMPILER V9.60.0.0   BUTTON_MATRIX_LCD                                                 10/29/2020 16:15:58 PAGE 3   
+
+ 117   3            
+ 118   3            if(a==0XBE){
+ 119   4              //P3=12;
+ 120   4              command(0X01);
+ 121   4              display('L');
+ 122   4            }
+ 123   3          }
+ 124   2          
+ 125   2          switches=0X7F;
+ 126   2          a=switches;
+ 127   2          
+ 128   2          if(a!=0X7F){
+ 129   3            if(a==0X77){
+ 130   4              //P3=13;
+ 131   4              command(0X01);
+ 132   4              display('M');
+ 133   4            }
+ 134   3            
+ 135   3            if(a==0X7B){
+ 136   4              //P3=14;
+ 137   4              command(0X01);
+ 138   4              display('N');
+ 139   4            }
+ 140   3            
+ 141   3            if(a==0X7D){
+ 142   4              //P3=15;
+ 143   4              command(0X01);
+ 144   4              display('O');
+ 145   4            }
+ 146   3            
+ 147   3            if(a==0X7E){
+ 148   4              //P3=16;
+ 149   4              command(0X01);
+ 150   4              display('P');
+ 151   4            }
+ 152   3          }
+ 153   2          
+ 154   2        }
+ 155   1      }
+ 156          
+ 157          
+ 158          void delay(unsigned int z){
+ 159   1        while(z!=0){
+ 160   2          z--;
+ 161   2        }
+ 162   1      }
+ 163          
+ 164          void command(unsigned int b){
+ 165   1        rs=0;
+ 166   1        P1=b;
+ 167   1        en=1;
+ 168   1        delay(300);
+ 169   1        en=0;
+ 170   1      }
+ 171          
+ 172          void display(unsigned int c){
+ 173   1        rs=1;
+ 174   1        P1=c;
+ 175   1        en=1;
+ 176   1        delay(300);
+ 177   1        en=0;
+ 178   1      }
+C51 COMPILER V9.60.0.0   BUTTON_MATRIX_LCD                                                 10/29/2020 16:15:58 PAGE 4   
+
+ 179          
+ 180          void start(){
+ 181   1        command(0X01);
+ 182   1        command(0X0C);
+ 183   1        command(0X3C);
+ 184   1        command(0X38);
+ 185   1      
+ 186   1      }
+ 187          
+ 188          void string(char *e){
+ 189   1        while(*e){
+ 190   2          display(*e++);
+ 191   2          }
+ 192   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    548    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

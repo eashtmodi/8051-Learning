@@ -1,0 +1,3 @@
+".\Objects\button_matrix_lcd.obj" 
+TO ".\Objects\button_matrix_lcd" 
+PRINT(".\Listings\button_matrix_lcd.m51") RAMSIZE(256) 

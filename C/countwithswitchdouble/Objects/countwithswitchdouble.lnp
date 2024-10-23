@@ -1,0 +1,3 @@
+".\Objects\countwithswitchdouble.obj" 
+TO ".\Objects\countwithswitchdouble" 
+PRINT(".\Listings\countwithswitchdouble.m51") RAMSIZE(256) 

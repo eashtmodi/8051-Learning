@@ -1,0 +1,86 @@
+C51 COMPILER V9.60.0.0   LCD                                                               10/26/2020 14:58:49 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN .\Objects\lcd.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE lcd.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\lcd.l
+                    -st) TABS(2) OBJECT(.\Objects\lcd.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          sbit rs =P3^5;
+   4          sbit en =P3^3;
+   5          
+   6          
+   7          void delay(unsigned int a);
+   8          void command(unsigned int b);
+   9          void display(unsigned int c);
+  10          void string(char *e);
+  11          void start();
+  12          
+  13          void main(){
+  14   1        start();
+  15   1        while(1){
+  16   2        command(0X85);
+  17   2        display('I');
+  18   2        command(0X87);
+  19   2        string("AM");
+  20   2        command(0XC2);
+  21   2        string("NUMITECHNICAL");
+  22   2        }
+  23   1      }
+  24          
+  25          void delay(unsigned int a){
+  26   1        while(a!=0){
+  27   2          a--;
+  28   2        }
+  29   1      }
+  30          
+  31          void command(unsigned int b){
+  32   1        rs=0;
+  33   1        P1=b;
+  34   1        en=1;
+  35   1        delay(300);
+  36   1        en=0;
+  37   1      }
+  38          
+  39          void display(unsigned int c){
+  40   1        rs=1;
+  41   1        P1=c;
+  42   1        en=1;
+  43   1        delay(300);
+  44   1        en=0;
+  45   1      }
+  46          
+  47          void start(){
+  48   1        command(0X01);
+  49   1        command(0X0C);
+  50   1        command(0X3C);
+  51   1        command(0X38);
+  52   1      
+  53   1      }
+  54          
+C51 COMPILER V9.60.0.0   LCD                                                               10/26/2020 14:58:49 PAGE 2   
+
+  55          void string(char *e){
+  56   1        while(*e){
+  57   2          display(*e++);
+  58   2          }
+  59   1      }
+  60          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    156    ----
+   CONSTANT SIZE    =     17    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

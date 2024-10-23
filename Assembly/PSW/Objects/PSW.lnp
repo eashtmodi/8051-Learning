@@ -1,0 +1,3 @@
+".\Objects\PSW.obj" 
+TO ".\Objects\PSW" 
+PRINT(".\Listings\PSW.m51") RAMSIZE(256) 

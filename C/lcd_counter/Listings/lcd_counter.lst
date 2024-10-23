@@ -1,0 +1,82 @@
+C51 COMPILER V9.60.0.0   LCD_COUNTER                                                       10/26/2020 15:51:27 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE LCD_COUNTER
+OBJECT MODULE PLACED IN .\Objects\lcd_counter.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE lcd_counter.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listin
+                    -gs\lcd_counter.lst) TABS(2) OBJECT(.\Objects\lcd_counter.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          sbit rs =P3^5;
+   4          sbit en =P3^3;
+   5          int d,e;
+   6          
+   7          void delay(unsigned int a);
+   8          void command(unsigned int b);
+   9          void display(unsigned int c);
+  10          void start();
+  11          char array[]={'0','1','2','3','4','5','6','7','8','9'};
+  12          void main(){
+  13   1        start();
+  14   1        while(1){
+  15   2        for(d=0;d<10;d++){
+  16   3          for(e=0;e<10;e++){
+  17   4            //command(0X01);
+  18   4            command(0X87);
+  19   4            display(array[d]);
+  20   4            display(array[e]);
+  21   4            delay(65000);
+  22   4          }
+  23   3        }
+  24   2      }
+  25   1      }
+  26          void delay(unsigned int a){
+  27   1        while(a!=0){
+  28   2          a--;
+  29   2        }
+  30   1      }
+  31          
+  32          void command(unsigned int b){
+  33   1        rs=0;
+  34   1        P1=b;
+  35   1        en=1;
+  36   1        delay(300);
+  37   1        en=0;
+  38   1      }
+  39          
+  40          void display(unsigned int c){
+  41   1        rs=1;
+  42   1        P1=c;
+  43   1        en=1;
+  44   1        delay(300);
+  45   1        en=0;
+  46   1      }
+  47          
+  48          void start(){
+  49   1        command(0X01);
+  50   1        command(0X0C);
+  51   1        command(0X3C);
+  52   1        command(0X38);
+  53   1      
+  54   1      }
+C51 COMPILER V9.60.0.0   LCD_COUNTER                                                       10/26/2020 15:51:27 PAGE 2   
+
+  55          
+  56          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    152    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     14    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

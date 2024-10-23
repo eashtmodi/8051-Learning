@@ -1,0 +1,3 @@
+".\Objects\lcd_counter.obj" 
+TO ".\Objects\lcd_counter" 
+PRINT(".\Listings\lcd_counter.m51") RAMSIZE(256) 

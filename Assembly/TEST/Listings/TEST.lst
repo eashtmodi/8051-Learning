@@ -1,0 +1,38 @@
+A51 MACRO ASSEMBLER  TEST                                                                 08/28/2020 14:46:55 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\TEST.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE TEST.asm SET(SMALL) DEBUG PRINT(.\Listings\TEST.lst) OBJECT(.\Objects\T
+                      EST.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0H;
+0000 7400              2     MOV A,#0;
+0002 7800              3     MOV R0,#0;
+0004 2479              4     ADD A,#79H;
+0006 24F5              5     ADD A,#0F5H;
+0008 5001              6     JNC XYZ;
+000A 08                7     INC R0;
+000B 2405              8     XYZ:ADD A,#05H;
+000D 5001              9     JNC OVER;
+000F 08               10     INC R0;
+0010 F9               11     OVER:MOV R1,A;
+                      12     END;
+A51 MACRO ASSEMBLER  TEST                                                                 08/28/2020 14:46:55 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+OVER . . . . . . .  C ADDR   0010H   A   
+XYZ. . . . . . . .  C ADDR   000BH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
